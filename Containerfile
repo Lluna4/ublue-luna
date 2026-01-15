@@ -32,8 +32,8 @@ FROM ghcr.io/ublue-os/bluefin:latest
 RUN --mount=type=cache,dst=/var/cache \
     --mount=type=tmpfs,dst=/var/log \
     --mount=type=tmpfs,dst=/tmp \
-    --mount=type=bind,from=akmods,src=/kernel-rpms,dst=/tmp/kernel-rpms \
-    --mount=type=bind,from=akmods,src=/rpms,dst=/tmp/rpms \
+    --mount=type=bind,src=/kernel-rpms,dst=/tmp/kernel-rpms \
+    --mount=type=bind,src=/rpms,dst=/tmp/rpms \
     --mount=type=bind,src=build_files/kernel-swap.sh,dst=/ctx/kernel-swap.sh \
     --mount=type=bind,src=build_files/common.sh,dst=/ctx/common.sh \
     ["/ctx/kernel-swap.sh"]
