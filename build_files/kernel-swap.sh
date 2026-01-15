@@ -1,8 +1,5 @@
 #!/usr/bin/bash
 
-# shellcheck disable=SC1091
-. /ctx/common.sh
-
 set -eoux pipefail
 
 # create a shims to bypass kernel install triggering dracut/rpm-ostree
