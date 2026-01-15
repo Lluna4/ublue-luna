@@ -3,7 +3,7 @@ FROM scratch AS ctx
 COPY build_files /
 
 # Base Image
-FROM quay.io/gnome_infrastructure/gnome-build-meta:gnomeos-nightly
+FROM ghcr.io/ublue-os/bluefin-dx:latest
 
 ## Other possible base images include:
 # FROM ghcr.io/ublue-os/bazzite:latest
