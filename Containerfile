@@ -35,7 +35,7 @@ RUN --mount=type=cache,dst=/var/cache \
     --mount=type=bind,src=/kernel-rpms,dst=/tmp/kernel-rpms \
     --mount=type=bind,src=/rpms,dst=/tmp/rpms \
     --mount=type=bind,src=build_files/kernel-swap.sh,dst=/ctx/kernel-swap.sh \
-    ["/ctx/kernel-swap.sh"]
+    /ctx/kernel-swap.sh
 
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \
