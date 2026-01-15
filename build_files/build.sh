@@ -10,6 +10,7 @@ set -ouex pipefail
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/43/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # this installs a package from fedora repos
+dnf5 versionlock delete kernel-6.18.5-200.fc43
 dnf5 install -y tmux steam kernel-6.18.5-200.fc43
 
 # Use a COPR Example:
