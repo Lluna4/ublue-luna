@@ -3,7 +3,7 @@ FROM scratch AS ctx
 COPY build_files /
 
 # Base Image
-FROM ghcr.io/ublue-os/bluefin:latest
+FROM quay.io/gnome_infrastructure/gnome-build-meta:gnomeos-nightly
 
 ## Other possible base images include:
 # FROM ghcr.io/ublue-os/bazzite:latest
@@ -28,14 +28,6 @@ FROM ghcr.io/ublue-os/bluefin:latest
 ### MODIFICATIONS
 ## make modifications desired in your image and install packages by modifying the build.sh script
 ## the following RUN directive does all the things required to run "build.sh" as recommended.
-
-RUN --mount=type=cache,dst=/var/cache \
-    --mount=type=tmpfs,dst=/var/log \
-    --mount=type=tmpfs,dst=/tmp \
-    --mount=type=bind,src=/kernel-rpms,dst=/tmp/kernel-rpms \
-    --mount=type=bind,src=/rpms,dst=/tmp/rpms \
-    --mount=type=bind,src=build_files/kernel-swap.sh,dst=/ctx/kernel-swap.sh \
-    /ctx/kernel-swap.sh
 
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \
